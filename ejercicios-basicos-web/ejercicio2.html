@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ejericio 2</title>
+    </head>
+    <body>
+        <script>
+            /*
+            Media y suma hasta meter número negativo
+            */
+
+            //declaracion de variables
+            let cantidadNumeros = 0;
+            let suma = 0;
+
+            //sumar numero
+            while(true) {
+                    let num = Number(prompt("introduzca el numero "+ (cantidadNumeros + 1)));
+
+                    if (num < 0) {
+                        break; //salimos de nuestro bucle
+                    }
+
+                    suma += num;
+                    cantidadNumeros++;
+            }
+
+            const media = suma/cantidadNumeros;
+            console.log(`la suma de los numeros es ${suma}`);
+            console.log(`la media es ${media}`);
+
+        </script>
+    </body>
+</html>
