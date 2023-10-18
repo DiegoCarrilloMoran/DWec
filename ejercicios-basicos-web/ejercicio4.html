@@ -1,0 +1,38 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width = device-width, initial-scale=1.0">
+        <title>ejericio 4</title>
+    </head>
+    <body>
+        <script>
+            /*
+            Mostrar todos los impares que estén entre dos números introducidos 
+            por el usuario
+            */
+            let num1, num2;
+
+            //solicitud de dos valores numericos
+            do{
+                num1 = Number(prompt("introduzca el primer numero"))
+                num2 = Number(prompt("introduzca el segundo numero"))
+                
+                if (isNaN(num1) || isNaN(num2)){
+                    alert("porfavor introduzca dos valores numericos")
+                }
+            }while(isNaN(num1) || isNaN(num2))
+
+            //numero menor y mayor
+            let min = Math.min(num1,num2);
+            let max = Math.max(num1,num2);
+
+            console.log(`los numeros impares entre ${min} y ${max}`)
+            for(let i = ++min; i < max; i++){
+                if (i % 2 == 1) {
+                    console.log(i)
+                }
+            }
+        </script>
+    </body>
+
+</html>

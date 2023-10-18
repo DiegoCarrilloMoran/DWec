@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width = device-width, initial-scale=1.0">
+        <title>ejercicio 5</title>
+    </head>
+    <body>
+        <script>
+            /*
+            Mostrar todos los divisores de un número
+            */
+
+            //declaramos los números fuera del do...while debido a que que sino solo existirian en el scope del do...while
+            do {
+                num = Number(prompt("introduzca un numero"));
+
+                if(isNaN(num) || num < 0){
+                    alert("introduzca un numero valido ");
+                }
+            }while(isNaN(num) || num < 0)
+            
+            for (let i = 0; i < num; i++){
+                if(num % i == 0){
+                    console.log(i);
+                }
+            }
+           
+        </script>
+    </body> 
+</html>
