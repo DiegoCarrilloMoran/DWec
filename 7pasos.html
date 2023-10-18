@@ -35,8 +35,8 @@
 
             function showAllContacts(contactos) {
                 if (contactos instanceof Array) {
-                    contactos.forEach((contacto) => {
-                        console.log(`${contacto.nombre}/${contacto.telefono}/${contacto.correo}`);
+                    contactos.forEach((contacto, index) => {
+                        console.log(`${index + 1}. ${contacto.nombre}/${contacto.telefono}/${contacto.correo}`);
                     });
                 } else {
                     console.log("La lista de contactos no es un array.");
@@ -57,6 +57,26 @@
                 }
             }
 
+            function sortContacts(contactos, campo) {
+                if (contactos instanceof Array) {
+                    switch (campo) {
+                        case "nombre":
+                            contactos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                            break;
+                        case "telefono":
+                            contactos.sort((a, b) => a.telefono.localeCompare(b.telefono));
+                            break;
+                        case "correo":
+                            contactos.sort((a, b) => a.correo.localeCompare(b.correo));
+                            break;
+                        default:
+                            console.log("Campo de ordenación no válido.");
+                    }
+                } else {
+                    console.log("La lista de contactos no es un array.");
+                }
+            }
+
             let continuar = true;
 
             while (continuar) {
@@ -65,7 +85,8 @@
                     - Mostrar el último contacto (2)
                     - Mostrar todos los contactos (3)
                     - Añadir un nuevo contacto (4)
-                    - Salir del programa (5)`);
+                    - Ordenar la lista (5)
+                    - Salir del programa (6)`);
 
                 switch (opcion) {
                     case "1":
@@ -84,6 +105,10 @@
                         addNewContact(listaDeContactos, nombreNuevo, telefonoNuevo, correoNuevo);
                         break;
                     case "5":
+                        const campoOrden = prompt("Elige el campo por el cual deseas ordenar (nombre, telefono, correo):");
+                        sortContacts(listaDeContactos, campoOrden);
+                        break;
+                    case "6":
                         continuar = false;
                         break;
                     default:
