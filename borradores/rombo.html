@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Rombo</title>
+    </head>
+    <body>
+
+        <div id="caja"></div>
+        <script>;
+
+            // let space;
+            // let aste;
+            // let cont_x = 1;
+            // let cont_y;
+            // let num = Number(prompt("dime un número"));
+            
+            // for (cont_y; cont_y = 2*num; cont_y){
+            //     for(space = --num; space > 0; space--){
+            //         document.write("&nbsp&nbsp")
+            //     }
+            //     for(cont = cont_x; cont > 0; cont--){
+            //         document.write("*")
+            //     }
+            //     document.write("<br>")
+            // }
+
+            var caja = document.getElementById("caja");
+
+            var limite =4;
+
+            //creciente
+            for(var i = 0; i < limite;i++) {
+                var asterisco = " ";
+                var espacioHTML = " ";
+                
+                for (var k = 0; k < limite -i -1;k++){
+                    espacioHTML += "&nbsp&nbsp";
+                }
+
+                for(var j = 1; j <=2 * i +1; j++) {
+                    asterisco += "*";
+
+                }
+
+                caja.innerHTML = caja.innerHTML + espacioHTML + esterisco+ "<br>";
+            }
+        </script>
+    </body>
+</html>
