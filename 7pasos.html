@@ -34,12 +34,12 @@
             introducirá durante la ejecución del programa. (prompt). 
             Al final, muestra el primer y último contacto de la lista
             */
-           // Solicitar al usuario introducir un nuevo contacto
-           const nombreNuevo = prompt("Introduce el nombre del nuevo contacto:");
-           //recuerda que prompt devuelve cadenas de texto debido a eso es necesario poner number
-           const telefonoNuevo = Number(prompt("Introduce el número de teléfono del nuevo contacto:"));
-           const correoNuevo = prompt("Introduce el correo electrónico del nuevo contacto:");
-           
+            // Solicitar al usuario introducir un nuevo contacto
+            const nombreNuevo = prompt("Introduce el nombre del nuevo contacto:");
+            //recuerda que prompt devuelve cadenas de texto debido a eso es necesario poner number
+            const telefonoNuevo = Number(prompt("Introduce el número de teléfono del nuevo contacto:"));
+            const correoNuevo = prompt("Introduce el correo electrónico del nuevo contacto:");
+            
                 // Crear el nuevo contacto y agregarlo a la lista
                 const nuevoContacto = {
                     nombre: nombreNuevo,
@@ -58,6 +58,5 @@
                 console.log(`${primerContacto.nombre}/${primerContacto.telefono}/${primerContacto.correo}`);
                 console.log(`${ultimoContacto.nombre}/${ultimoContacto.telefono}/${ultimoContacto.correo}`);
                 </script>
-    </body>
-    
+    </body>    
 </html>
