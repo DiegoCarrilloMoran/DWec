@@ -29,9 +29,8 @@
                 }
             ];
             
-            while (true) {
                 //aqui si es nece
-                const opcion = Number(prompt("Elige una opción:\n- Mostrar el primer contacto (1)\n- Mostrar el último contacto (2)\n- Añadir un nuevo contacto (3)\n- Salir (4)"));
+                const opcion = Number(prompt("Elige una opción:\n- Mostrar el primer contacto (1)\n- Mostrar el último contacto (2)\n- Añadir un nuevo contacto (3)"));
 
                 if (opcion === 1) {
                     const primerContacto = listaDeContactos[0];
@@ -44,18 +43,22 @@
                     const telefonoNuevo = prompt("Introduce el número de teléfono del nuevo contacto:");
                     const correoNuevo = prompt("Introduce el correo electrónico del nuevo contacto:");
 
-                    const nuevoContacto = {
-                        nombre: nombreNuevo,
-                        telefono: telefonoNuevo,
-                        correo: correoNuevo
-                    };
-                    listaDeContactos.push(nuevoContacto);
-                } else if (opcion === 4) {
-                    break;
-                } else {
-                    alert("Opción no válida. Por favor, elige una opción válida.");
+                    // Convertir el número de teléfono a un valor numérico
+                    const telefonoNumero = parseFloat(telefonoNuevo);
+
+                    if (!isNaN(telefonoNumero) && typeof nombreNuevo === 'string' && typeof correoNuevo === 'string') {
+                        const nuevoContacto = {
+                            nombre: nombreNuevo,
+                            telefono: telefonoNumero, // Usamos el valor numérico
+                            correo: correoNuevo
+                        };
+                        listaDeContactos.push(nuevoContacto);
+                    } else {
+                        alert("Has introducido algún valor de manera incorrecta.");
+                    }
+                } else{
+                    alert("no selecciono niguna opcion")
                 }
-            }
         </script>
     </body>
 </html>
