@@ -29,34 +29,33 @@
                 }
             ];
             
-            /*
-            Modifica el programa para agregar, al final de la lista, el contacto que el usuario 
-            introducirá durante la ejecución del programa. (prompt). 
-            Al final, muestra el primer y último contacto de la lista
-            */
-           // Solicitar al usuario introducir un nuevo contacto
-            const nombreNuevo = prompt("Introduce el nombre del nuevo contacto:");
-            //recuerda que prompt devuelve cadenas de texto debido a eso es necesario poner number
-            const telefonoNuevo = Number(prompt("Introduce el número de teléfono del nuevo contacto:"));
-            const correoNuevo = prompt("Introduce el correo electrónico del nuevo contacto:");
-                // Crear el nuevo contacto y agregarlo a la lista
-                const nuevoContacto = {
-                    nombre: nombreNuevo,
-                    telefono: telefonoNuevo,
-                    correo: correoNuevo
-                };
-                listaDeContactos.push(nuevoContacto);
-                
-                //modificacion util para el paso 2 , como son constante se les tiene que dar valor al declararlas
-                const primerContacto = listaDeContactos[0];
-                const ultimoContacto = listaDeContactos[listaDeContactos.length - 1];
-                /* 
-                Mostrar información sobre el primer y último contacto,
-                he tenido que modificar esto debido que no se actualizaba a tener en cuenta este problema que puede generar el usar const
-                */
-                console.log(`${primerContacto.nombre}/${primerContacto.telefono}/${primerContacto.correo}`);
-                console.log(`${ultimoContacto.nombre}/${ultimoContacto.telefono}/${ultimoContacto.correo}`);
-                </script>
+            while (true) {
+                //aqui si es nece
+                const opcion = Number(prompt("Elige una opción:\n- Mostrar el primer contacto (1)\n- Mostrar el último contacto (2)\n- Añadir un nuevo contacto (3)\n- Salir (4)"));
+
+                if (opcion === 1) {
+                    const primerContacto = listaDeContactos[0];
+                    console.log(`${primerContacto.nombre}/${primerContacto.telefono}/${primerContacto.correo}`);
+                } else if (opcion === 2) {
+                    const ultimoContacto = listaDeContactos[listaDeContactos.length - 1];
+                    console.log(`${ultimoContacto.nombre}/${ultimoContacto.telefono}/${ultimoContacto.correo}`);
+                } else if (opcion === 3) {
+                    const nombreNuevo = prompt("Introduce el nombre del nuevo contacto:");
+                    const telefonoNuevo = prompt("Introduce el número de teléfono del nuevo contacto:");
+                    const correoNuevo = prompt("Introduce el correo electrónico del nuevo contacto:");
+
+                    const nuevoContacto = {
+                        nombre: nombreNuevo,
+                        telefono: telefonoNuevo,
+                        correo: correoNuevo
+                    };
+                    listaDeContactos.push(nuevoContacto);
+                } else if (opcion === 4) {
+                    break;
+                } else {
+                    alert("Opción no válida. Por favor, elige una opción válida.");
+                }
+            }
+        </script>
     </body>
-    
 </html>
