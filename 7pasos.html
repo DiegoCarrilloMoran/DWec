@@ -6,22 +6,36 @@
     </head>
     <body>
         <script>
-            //paso 1
-            let nombre1 = "maxmell wright"
-            let nombre2 = "raja  villareal"
-            let nombre3 = "Helen Richards"
+            /*
+            1.- Elabora una lista de contactos Inicialmente tendrá los valores de la tabla adjunta:
+            Declara e inicializa las variables donde se almacenará toda la información (nueve variables en total). 
+            Muestra en la consola información sobre el primer y último contacto en el formulario: nombre/teléfono/correo.
+            */
             
+            const listaDeContactos = [
+            {
+                nombre: "Maxmell Wright",
+                telefono: "(0191) 719 6495",
+                correo: "curabitur.egestas.nunc@nonummyac.co.uk"
+            },
+            {
+                nombre: "Raja Villareal",
+                telefono: "0866 398 2895",
+                correo: "posuere.vulputate@sed.com"
+            },
+            {
+                nombre: "Helen Richards",
+                telefono: "0800 1111",
+                correo: "libero@convallis.edu"
+            }
+            ];
 
-            let telefono1 = "(0191) 719 6495"
-            let telefono2 = "0866 398 2895"
-            let telefono3 = "0800 1111"
+            // mostrar por consola la informacion de los contactos
+            const contacto1 = listaDeContactos[0];
+            console.log(`${contacto1.nombre}/${contacto1.telefono}/${contacto1.correo}`)
 
-            let correo1 =  "curabitur.egestas.nunc@nonummyac.co.uk"
-            let correo2 =  "posuere.vulputate@sed.com"
-            let correo3 =  "libero@convallis.edu"
-
-            console.log(`${nombre1}/${telefono1}/${correo1}`);
-            console.log(`${nombre3}/${telefono3}/${correo3}`);
+            const contacto3 = listaDeContactos[2];
+            console.log(`${contacto3.nombre}/${contacto3.telefono}/${contacto3.correo}`);
         </script>
     </body>
     
