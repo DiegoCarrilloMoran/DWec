@@ -24,50 +24,66 @@
                 }
             ];
 
+            function showContact(contactos, index) {
+                if (contactos instanceof Array && index >= 0 && index < contactos.length) {
+                    const contacto = contactos[index];
+                    console.log(`${contacto.nombre}/${contacto.telefono}/${contacto.correo}`);
+                } else {
+                    console.log("Índice de contacto no válido o la lista de contactos no es un array.");
+                }
+            }
+
+            function showAllContacts(contactos) {
+                if (contactos instanceof Array) {
+                    contactos.forEach((contacto) => {
+                        console.log(`${contacto.nombre}/${contacto.telefono}/${contacto.correo}`);
+                    });
+                } else {
+                    console.log("La lista de contactos no es un array.");
+                }
+            }
+
+            function addNewContact(contactos, nombre, telefono, correo) {
+                if (contactos instanceof Array && nombre && telefono && correo) {
+                    const nuevoContacto = {
+                        nombre: nombre,
+                        telefono: telefono,
+                        correo: correo
+                    };
+                    contactos.push(nuevoContacto);
+                    alert("Contacto añadido exitosamente.");
+                } else {
+                    alert("Datos de contacto incompletos o la lista de contactos no es un array.");
+                }
+            }
+
             let continuar = true;
 
             while (continuar) {
                 const opcion = prompt(`Elige una opción:
-                    - Mostrar el primer contacto (primero)
-                    - Mostrar el último contacto (ultimo)
-                    - Mostrar todos los contactos (todos)
-                    - Añadir un nuevo contacto (nuevo)
-                    - Salir del programa (salir)`);
+                    - Mostrar el primer contacto (1)
+                    - Mostrar el último contacto (2)
+                    - Mostrar todos los contactos (3)
+                    - Añadir un nuevo contacto (4)
+                    - Salir del programa (5)`);
 
                 switch (opcion) {
-                    case "primero":
-                        const primerContacto = listaDeContactos[0];
-                        console.log(`${primerContacto.nombre}/${primerContacto.telefono}/${primerContacto.correo}`);
+                    case "1":
+                        showContact(listaDeContactos, 0);
                         break;
-                    case "ultimo":
-                        const ultimoContacto = listaDeContactos[listaDeContactos.length - 1];
-                        console.log(`${ultimoContacto.nombre}/${ultimoContacto.telefono}/${ultimoContacto.correo}`);
+                    case "2":
+                        showContact(listaDeContactos, listaDeContactos.length - 1);
                         break;
-                    case "todos":
-                        listaDeContactos.forEach((contacto) => {
-                            console.log(`${contacto.nombre}/${contacto.telefono}/${contacto.correo}`);
-                        });
+                    case "3":
+                        showAllContacts(listaDeContactos);
                         break;
-                    case "nuevo":
+                    case "4":
                         const nombreNuevo = prompt("Introduce el nombre del nuevo contacto:");
                         const telefonoNuevo = prompt("Introduce el número de teléfono del nuevo contacto:");
                         const correoNuevo = prompt("Introduce el correo electrónico del nuevo contacto:");
-
-                        const telefonoNumero = parseFloat(telefonoNuevo);
-
-                        if (!isNaN(telefonoNumero) && typeof nombreNuevo === 'string' && typeof correoNuevo === 'string') {
-                            const nuevoContacto = {
-                                nombre: nombreNuevo,
-                                telefono: telefonoNumero,
-                                correo: correoNuevo
-                            };
-                            listaDeContactos.push(nuevoContacto);
-                            alert("Contacto añadido exitosamente.");
-                        } else {
-                            alert("Has introducido algún valor de manera incorrecta.");
-                        }
+                        addNewContact(listaDeContactos, nombreNuevo, telefonoNuevo, correoNuevo);
                         break;
-                    case "salir":
+                    case "5":
                         continuar = false;
                         break;
                     default:
