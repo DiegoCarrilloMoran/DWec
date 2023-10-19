@@ -1,0 +1,29 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width = device-width, initial-scale=1.0">
+        <title>ejercicio 2</title>
+    </head>
+    <body>
+        <script>
+            /*
+            Solicitar una frase desde teclado, almacenar cada palabra en un elemento de un array y mostrar los siguientes datos:
+            • La primera palabra de la frase.
+            • La última palabra de la frase.
+            • El número de palabras de la frase.
+            */
+
+            //guardo como cadena de texto la frase
+            let frase = prompt("Introduce una frase:");
+            
+            // la siguiente funcion coge una cadena de texto y la convierte en un array, lo que va dentro del parentesis es el delimtador,
+            //en este caso he decidido que sean los espacios para me divida la frase en palabras
+            let palabras = frase.split(" ");
+        
+            //estas son funciones simples que usamos mucho con los arrays
+            document.write(`La primera palabra de la frase: ${palabras[0]}<br>`);
+            document.write(`La última palabra de la frase: ${palabras[palabras.length - 1]}<br>`);
+            document.write(`El número de palabras de la frase: ${palabras.length}<br>`);
+        </script>
+    </body>
+</html>

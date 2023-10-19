@@ -14,7 +14,32 @@
             • mostrar el nombre de los socios en orden inverso al introducido
             */
 
-            
+            //creacion de array
+            const socios = [];
+
+            //introducir datos de socios
+            for (let i = 1; i <= 10; i++) {
+                const nombre = prompt(`Introduce el nombre del socio ${i}:`);
+                socios.push(nombre);
+            }
+
+            document.write("<b>nombres de los socios como fueron introducidos:</b> <br>");
+            for (let i = 0; i < socios.length; i++) {
+                document.write(socios[i]+"<br/>");
+            }
+
+            document.write(`<b>numero de socios:</b> ${socios.length}<br>`);
+
+            const sociosOrdenados = [...socios].sort();
+            document.write("<b>nombres de los socios ordenados: </b><br>");
+            for (let i = 0; i < sociosOrdenados.length; i++) {
+                document.write(sociosOrdenados[i]+"<br>");
+            }
+
+            document.write("<b>nombres de los socios en orden inverso:</b> <br>");
+            for (let i = socios.length - 1; i >= 0; i--) {
+                document.write(socios[i]+"<br>");
+            }
         </script>
     </body>
 
