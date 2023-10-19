@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rombo</title>
+    </head>
+    <body>
+
+        <div id="caja"></div>
+        <script>
+            //declaramos la caja y el numero de filas que queremos
+            let caja = document.getElementById("caja");
+            let numFilas = parseInt(prompt("Ingrese el número de filas para el rombo:"));
+
+            //pedimo un numero valido sino no lo hace
+            if (isNaN(numFilas)) {
+                alert("Por favor, ingrese un número válido.");
+            } else {
+                
+                // primera mitad del rombo
+                for (let i = 0; i < numFilas; i++) {
+                    let asterisco = "";
+                    let espacioHTML = "";
+
+                    for (let k = 0; k < numFilas - i - 1; k++) {
+                        espacioHTML += "&nbsp;&nbsp;";
+                    }
+
+                    for (let j = 1; j <= 2 * i + 1; j++) {
+                        asterisco += "*";
+                    }
+
+                    caja.innerHTML += espacioHTML + asterisco + "<br>";
+                }
+
+                // Parte inferior del rombo (decreciente)
+                for (let i = numFilas - 2; i >= 0; i--) {
+                    let asterisco = "";
+                    let espacioHTML = "";
+
+                    for (let k = 0; k < numFilas - i - 1; k++) {
+                        espacioHTML += "&nbsp;&nbsp;";
+                    }
+
+                    for (let j = 1; j <= 2 * i + 1; j++) {
+                        asterisco += "*";
+                    }
+
+                    caja.innerHTML += espacioHTML + asterisco + "<br>";
+                }
+            }
+        </script>
+    </body>
+</html>
+
