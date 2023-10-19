@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine</title>
+  </head>
+  <body>
+    <script>
+      // declaración de variables
+        let nombre, edad, pelicula, regalos, descuento, precio;
+        const entrada = 8.5;
+
+      // pedida y omprobación de nombre
+        do {
+        nombre = prompt("Por favor, ingresa tu nombre: ");
+        } while (!nombre || !isNaN(nombre));
+
+      // pedida y comprobacion de edad
+        do {
+        edad = prompt("Por favor, ingresa tu edad: ");
+        edad = parseInt(edad); // Convierte la entrada a un número entero
+        } while (isNaN(edad) || edad < 1 || edad > 120 || !edad);
+
+        //la siguiente linea de codigo solo es una un punto de control para saber si funciona la inserccion de nombre y edad
+        alert("Hola " + nombre + ", tu edad es " + edad + " años.");
+
+      // declaracion pelicula y regalos
+        let peliculas = [
+        "Spider-Man",
+        "Superman",
+        "Dragon Ball Super",
+        "La era de hielo",
+        "18 videos",
+        ];
+
+        let comidasBebidas = [
+          "caramelos y refrescos", 
+          "pelomitas, perrito y refresco", 
+          "perrito y refresco", 
+          "agua"
+        ];
+        
+        //excepcion para un tipo de pelicula si al comprobar los datos el cliente es menor de edad
+        do {
+          //pedida de de pelicula y comprabcion
+          do {
+            pelicula = Number(prompt("LA CARTELERA ES:\n1. Spider-Man\n2. Superman\n3. Dragon Ball Super\n4. La era de hielo\n5. 18 videos\nElige una película (ingresa el número):"));
+            
+            //
+            if (isNaN(pelicula) || pelicula < 1 || pelicula > 5 || !pelicula) {
+              alert("introduzca un valor valido de los mostrados por pantalla")
+            }
+          } while (isNaN(pelicula) || pelicula < 1 || pelicula > 5 || !pelicula);
+          
+          //mensaje si es menor para que solicite otro pelicula
+          if (pelicula == 5 && edad < 18) {
+            alert("Eres demasiado joven para ver este tipo de películas.");
+          }
+        } while (pelicula == 5 && edad < 18);
+        
+        alert(`hola ${nombre} has elegido ver ${peliculas[pelicula-1]}`);
+
+        // descuentos y regalos
+        if (edad <= 17) {
+          descuento = 0.5;
+          regalos = comidasBebidas[0];
+            } else if (edad >= 18 && edad <= 25) {
+                regalos = comidasBebidas[1];
+                descuento = 0;
+            } else if (edad >= 26 && edad <= 35) {
+                descuento = 0.1;
+                regalos = comidasBebidas[2];
+            } else {
+                descuento = 0.2;
+                regalos = comidasBebidas[3];
+            }
+
+            // precio con descuentos
+            precio = entrada - (entrada * descuento);
+
+            // Imprimir resultados
+            console.log('Nombre del cliente: ' + nombre);
+            console.log('Película elegida: ' + peliculas[pelicula - 1]);
+            console.log('Comidas y bebidas incluidas: ' + regalos);
+            console.log('Total a pagar: ' + precio + ' euros');
+
+            // Mostrar en el HTML
+            document.write('<p>Nombre del cliente: ' + nombre + '</p>');
+            document.write('<p>Película elegida: ' + peliculas[pelicula - 1] + '</p>');
+            document.write('<p>Comidas y bebidas incluidas: ' + regalos + '</p>');
+            document.write('<p>Total a pagar: ' + precio + ' euros</p>');
+    </script>
+  </body>
+</html>
