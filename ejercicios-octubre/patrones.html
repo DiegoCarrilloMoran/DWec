@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UFT-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ejercicio 4</title>
+</head>
+
+<body>
+    <script>
+        /*
+                Realiza una aplicación web que solicite una cadena de texto. El programa debe decir cuántas veces ocurre cada uno de estos patrones sin distinguir mayúsculas y minúsculas: “00” “101”, “ABC”, “H0”.Un carácter puede formar parte de más de un patrón encontrado. Por ejemplo:
+                En la cadena “000” el patrón “00” aparece dos veces (una empieza en la posición 0 y otra empieza en la posición 1).
+                Internamente el programa realizará la cuenta de patrones con una función definida como function numeroPatrones(texto) que devolverá un número entero con el número de patrones encontrados. 
+                Ejemplo:
+                1110101000ABCHO	
+                */
+
+        //declaracion de variables
+        const patrones = ["00", "101", "ABC", "HO"]; // Corregir patrones
+
+        //entrada de cadena de texto
+        let cadena = prompt("introduce una cadena de texto").toUpperCase();
+
+        //salida
+        numeroPatrones(cadena);
+
+        //funcion
+        function numeroPatrones(cadena) {
+            // Debes usar "cadena" en lugar de "string" aquí
+            let contador = [0, 0, 0, 0];
+            for (let index = 0; index < cadena.length; index++) {
+                for (let cont = 0; cont < patrones.length; cont++) {
+                cadena.substr(index,patrones[cont].length) == (patrones[cont]) ? contador[cont]++ : undefined;
+                }
+            }
+            for (let index = 0; index < patrones.length; index++) {
+                document.write(`el patron ${patrones[index]} se repite --> ${contador[index]} <br/>`);
+                
+            }
+        }
+    </script>
+</body>
+
+</html>

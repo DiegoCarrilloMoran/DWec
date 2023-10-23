@@ -1,0 +1,74 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width = device-width, initial-scale=1.0">
+        <title>ejercicio 3</title>
+    </head>
+    <body>
+        <script>
+            /*
+            Programa que pida un número que indica por cada pareja de dígitos (empezando por la derecha) los viajeros que han subido y bajado (respectivamente) en la estación de partida y en cada una de las estaciones intermedias hasta llegar a su destino.
+            Por ejemplo si se recibe el siguiente número  68573528463604, significa que partió con 4 viajeros, en la siguiente estación subieron 6 y bajaron 3, en la segunda intermedia bajaron 4 y subieron 6…
+            Se pide:
+                • Control de errores ( NaN, número incorrecto…)
+                • ¿Cuántos llegaron al final de trayecto?
+            */
+
+            //declaracion de variables y comprobacion de numero validos
+            let pasajeros,digitos;
+            do {
+                pasajeros = Number(prompt("Ingresa el historial de pasajeros:"));
+                digitos = Number(prompt("¿En cuántos dígitos quieres separar los pasajeros?"));
+
+                // Verificar si los valores son números válidos y positivos
+                if (isNaN(pasajeros) || isNaN(digitos) || pasajeros <= 0 || digitos <= 0 ) {
+                    alert("Por favor, introduce números válidos y positivos.");
+                }
+            } while (isNaN(pasajeros) || isNaN(digitos) || pasajeros <= 0 || digitos <= 0);
+
+            pasajerosFinales(arraydigitos(pasajeros, digitos)); 
+
+
+
+
+
+            // funcion separacion de digitos
+            function arraydigitos(pasajerosNumber, digitos) {
+            let pasajeros = pasajerosNumber.toString();
+            let subenBajan = []; // Inicializamos un array vacío para almacenar los grupos
+            // Invertimos la cadena
+            let pasajerosInvertidos = pasajeros.split('').reverse().join('');
+            // Bucle de separación
+            for (let index = 0; index < pasajerosInvertidos.length; index += digitos) {
+                let grupos = pasajerosInvertidos.slice(index, index + digitos);
+                subenBajan.push(grupos);
+            }
+            console.log(subenBajan); // Devolvemos el resultado o haz algo con él según tus necesidades
+            return subenBajan;
+            }
+
+            //funcion operaciones
+            function pasajerosFinales(subenBajanString) {
+
+                //esto es un map, tiene esta structura .map(function(variable){<argumento/instrucciones>);})
+                //a la funcion del map se le suele llamar funcion anonima, funcion de devolucion de llamada, funcion de mapeo
+                let subenBajan = subenBajanString.map(function(elemento){return Number(elemento);});
+
+                let index = 0;
+                let pasajerosFinales = 0;
+                
+                do {
+                    pasajerosFinales += subenBajan[index];
+                    index++;
+                    if(index == subenBajan.length){break}
+
+                    pasajerosFinales -= subenBajan[index];
+                    index++;
+                    if(index == subenBajan.length){break}
+                } while (true);
+                
+                alert(`los pasajeros finales son ${pasajerosFinales}`);
+            }
+        </script>
+    </body>
+</html>
