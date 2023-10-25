@@ -1,0 +1,23 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>perimetro del rectangulo</title>
+    </head>
+    <body>
+        <script>
+            // Función
+            function perimetroRectangulo(base, altura) {
+                return (base + altura) * 2;
+            }
+        
+            // Pedir al usuario la base y la altura
+            let base = parseFloat(parseFloat(prompt("Introduzca la base de tu rectángulo")).toFixed(2));
+            let altura = parseFloat(parseFloat(prompt("Introduzca la altura de tu rectángulo")).toFixed(2));
+        
+            // Mostrar el perímetro por pantalla
+            alert(`El perímetro del rectángulo es ${parseFloat(perimetroRectangulo(base, altura))}`);
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,27 @@
+<html lang="en">
+
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Año bisiesto</title>
+</head>
+
+<body>
+    <script>
+        // Algoritmo
+        function esBisiesto(anyo) {
+            return (anyo % 400 == 0 || (anyo % 100 !== 0 && anyo % 4 == 0));
+        }
+
+        // Pedir año al usuario
+        let anyo = Number(prompt("Ingrese un anyo"));
+
+        if (esBisiesto(anyo)) {
+            alert(`El ${anyo} es bisiesto`);
+        } else {
+            alert(`El ${anyo} no es bisiesto`);
+        }
+    </script>
+</body>
+
+</html>

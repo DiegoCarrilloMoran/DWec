@@ -1,0 +1,49 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ejercio de los productos</title>
+    </head>
+    <body>
+        <script>
+
+            //las funciones
+            function prodOrdenPorNombre() {
+                return productos.slice().sort((a, b) => {
+                    return a.nombre.localeCompare(b.nombre);
+                });
+            }
+            
+            function prodOrdenPorPrecio() {
+                return productos.slice().sort((a, b) => {
+                    return a.precio - b.precio;
+                });
+            }
+
+            //lo hago con const debido a que estos objetos no van a modificarse
+            const productos = [
+                { nombre: "azucar", precio: 10.99, unidades: 20 },
+                { nombre: "puerro", precio: 5.99, unidades: 30 },
+                { nombre: "repollo", precio: 15.99, unidades: 15 },
+                { nombre: "arroz", precio: 7.99, unidades: 25 },
+                { nombre: "berengena", precio: 12.99, unidades: 10 }
+            ];
+            
+            const productosOrdenadosPorNombre = prodOrdenPorNombre();
+            const productosOrdenadosPorPrecio = prodOrdenPorPrecio();
+
+            // Mostrar productos ordenados por nombre
+            console.log("Productos ordenados por nombre:");
+            productosOrdenadosPorNombre.forEach(producto => {
+                console.log(`Nombre: ${producto.nombre}, Precio: $${producto.precio}`);
+            });
+
+            // Mostrar productos ordenados por precio
+            console.log("\nProductos ordenados por precio:");
+            productosOrdenadosPorPrecio.forEach(producto => {
+                console.log(`Nombre: ${producto.nombre}, Precio: $${producto.precio}`);
+            });
+        </script>
+    </body>
+
+</html>
