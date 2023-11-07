@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fechas</title>
+</head>
+
+<body>
+    <script>
+        /*
+        RESULTADOS DE LA SALIDA POR CONSOLA
+        const fecha1 = new Date('Wed Mar 25 2015 09:15 GMT +0100(W. Europe Standard Time)')
+        const fecha2 = new Date('October 12 2023')
+        const fecha3 = new Date('2023-05-27')
+        const fecha4 = new Date('2023')
+        console.log(fecha1, fecha2, fecha3, fecha4)
+        */
+
+        // Crear una instancia de Date que representa la fecha y hora actual
+        const fecha = new Date();
+
+        // Imprimir la fecha y hora actual
+        console.log('Fecha: ' + fecha);
+
+        // Imprimir la representación de fecha y hora actual como una cadena de texto utilizando el método toString()
+        console.log('toString: ' + fecha.toString());
+
+        // Imprimir la representación de fecha y hora actual en formato UTC como una cadena de texto utilizando el método toUTCString()
+        console.log('toUTCString: ' + fecha.toUTCString());
+
+        // Imprimir la representación de la fecha actual como una cadena de texto utilizando el método toDateString()
+        console.log('toDateString: ' + fecha.toDateString());
+
+        // Crear una instancia de Date basada en el número de milisegundos desde el "epoch" (864000000 ms es una fecha específica)
+        const fechaMili = new Date(864000000);
+
+        // Imprimir la fecha correspondiente a los 864000000 milisegundos desde el "epoch"
+        console.log(fechaMili);
+
+        // Obtener el día de la semana actual (0 para domingo, 1 para lunes, etc.) utilizando el método getDay()
+        console.log(fecha.getDay());
+
+        //--------------------------------------------------------------------------------------------------------------
+        // diferencia de tiempo entre hoy y 1990-05-07'
+        function difFechas(fecha1, fecha2) {
+            const dif = fecha1 - fecha2;
+
+            const milisegundosPorDia = 1000 * 60 * 60 * 24;
+            const milisegundosPorMes = milisegundosPorDia * 30.44; // Promedio de días por mes en un año no bisiesto
+            const milisegundosPorAnio = milisegundosPorDia * 365;
+
+            const anios = Math.floor(dif / milisegundosPorAnio);
+            const meses = Math.floor((dif % milisegundosPorAnio) / milisegundosPorMes);
+            const dias = Math.floor((dif % milisegundosPorMes) / milisegundosPorDia);
+            const horas = Math.floor((dif % milisegundosPorDia) / (1000 * 60 * 60));
+            const minutos = Math.floor((dif % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((dif % (1000 * 60)) / 1000);
+
+            return {
+                anios,
+                meses,
+                dias,
+                horas,
+                minutos,
+                segundos
+            };
+        }   
+
+        const hoy = new Date();
+        const fechaAntigua = new Date('1990-05-07');
+        const diferencia = difFechas(hoy, fechaAntigua);
+
+        const diferenciaTexto = `Años: ${diferencia.anios}, 
+        Meses: ${diferencia.meses}, 
+        Días: ${diferencia.dias}, 
+        Horas: ${diferencia.horas}, 
+        Minutos: ${diferencia.minutos}, 
+        Segundos: ${diferencia.segundos}`;
+
+        document.write(diferenciaTexto);
+
+        // const diferencia = difFechas(new Date('hoy'), new Date('1990-05-07'))
+
+    </script>
+</body>
+</html>

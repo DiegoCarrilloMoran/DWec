@@ -1,0 +1,55 @@
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>arrays</title>
+    </head>
+    <body>
+        <script>
+            //desestructuracion - caracteristica que permite extraer valores de arrays o pripiedades en varibales individuales
+            const matriz = [5, 6]
+            const [first, last] = matriz
+            console.log(first, last)
+            /*
+            Tenemos un array con dos elementos: 5 y 6
+            desestructuramos para asignar los valores del array a las variables first y last.
+            Como resultado, first contendrá 5 y last contendrá 6.
+            Al imprimir first y last, obtendrás 5 y 6 respectivamente.
+            */
+
+            //intercambio de valores
+            let a = 6
+            let b = 2
+            ;[a, b] = [b, a]
+            console.log(b, a)
+            /*
+            técnica para intercambiar los valores de las variables a y b sin usar una variable temporal.
+            */
+
+            //Spread y Rest
+            const matriz2 = [1, 2, 3, 4, 5]
+            const funcion1 = param => console.log(...param)
+            debug(matriz)
+            /*
+            El spread (...param) se utiliza en la función debug para expandir los elementos del array matriz y pasarlos como argumentos separados a la función console.log().
+            Cuando se llama a debug(matriz), se desglosa el array matriz y se imprime cada elemento por separado en la consola.
+            */
+
+            const funcion2 = (...param) => console.log(param)
+            debug(1, 2, 3, 4, 5)
+            /*
+            En esta función debug, el rest (...param) se utiliza para recopilar una cantidad variable de argumentos en un array llamado param.
+            Cuando se llama a debug(1, 2, 3, 4, 5), se recopilan los valores 1, 2, 3, 4 y 5 en un array llamado param.
+            Luego, se imprime el array param, que contendrá todos los valores pasados como argumentos.
+            */
+
+            //array anidado
+            const array = [3, 4]
+            const nuevoArray = [1, 2, array, 5]
+            console.log(array, nuevoArray)
+            /*
+            Al imprimir nuevoArray, verás [1, 2, [3, 4], 5]
+            */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Arrays</title>
+</head>
+<body>
+    <h1>Métodos de Arrays</h1>
+    <script>
+        // Array de ejemplo
+        const miArray = [1, 2, 3, 4, 5];
+
+        // Método push()
+        miArray.push(6, 7);
+        document.write("<p>push() - Añadir elementos al final: " + miArray + "</p>");
+
+        // Método pop()
+        const ultimoElemento = miArray.pop();
+        document.write("<p>pop() - Eliminar y obtener el último elemento: " + ultimoElemento + "</p>");
+
+        // Método unshift()
+        miArray.unshift(0, 0.5);
+        document.write("<p>unshift() - Añadir elementos al principio: " + miArray + "</p>");
+
+        // Método shift()
+        const primerElemento = miArray.shift();
+        document.write("<p>shift() - Eliminar y obtener el primer elemento: " + primerElemento + "</p>");
+
+        // Método concat()
+        const array2 = [10, 20];
+        const nuevoArray = miArray.concat(array2);
+        document.write("<p>concat() - Combinar dos arrays: " + nuevoArray + "</p>");
+
+        // Método slice()
+        const subArray = miArray.slice(2, 4);
+        document.write("<p>slice() - Obtener un subconjunto de elementos: " + subArray + "</p>");
+
+        // Método splice()
+        miArray.splice(1, 2, 'nuevo1', 'nuevo2');
+        document.write("<p>splice() - Modificar el array: " + miArray + "</p>");
+
+        // Método join()
+        const cadena = miArray.join(' - ');
+        document.write("<p>join() - Convertir a cadena con separador: " + cadena + "</p>");
+
+        // Método sort()
+        miArray.sort((a, b) => a - b);
+        document.write("<p>sort() - Ordenar numéricamente: " + miArray + "</p>");
+    </script>
+</body>
+</html>

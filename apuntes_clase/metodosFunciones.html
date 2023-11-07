@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Funciones y Estructuras de Datos en JavaScript</title>
+</head>
+
+<body>
+    <h1>Funciones y Estructuras de Datos en JavaScript</h1>
+
+    <script>
+        // Funciones de expresión
+        const resultado = function () {
+            console.log('hola'); // Imprime 'hola' en la consola
+        }
+        resultado();
+        /*
+        Son funciones asignadas a variables, lo que facilita la reutilización y el paso como argumentos a otras funciones.
+        */
+
+        // Funciones anónimas (de expresión)
+        const producto = function (a, b) {
+            return a * b; 
+        }
+        const resultadoProducto = producto(2, 3); // Llama a la función "producto" con argumentos 2 y 3
+        console.log(resultadoProducto); // Muestra el resultado del producto en la consola
+        /*
+        Son funciones sin nombre asignadas a variables, útiles para definir funciones temporales y al pasar funciones como argumentos.
+        */
+
+        // Callbacks
+        function llamarCallback(callback) {
+            callback(); 
+        }
+        llamarCallback(() => console.log('hola')); // Llama a "llamarCallback" con una función anónima que imprime 'hola'
+        /*
+        Son funciones pasadas como argumentos a otras funciones, fundamentales para manejar tareas asincrónicas y eventos en JavaScript.
+        */
+
+        // Función autoinvocada y anónima
+        (usuario => {
+            console.log(usuario); // Imprime el valor del argumento "usuario" (en este caso, 'Alvaro')
+        })('Alvaro'); 
+        /*
+        Es una función anónima que se ejecuta inmediatamente después de definirla, útil para limitar el alcance de variables y evitar conflictos de nombres.
+        */
+
+        // Recursividad
+        function factorial(n) {
+            if (n <= 1) return 1;
+            return n * factorial(n - 1); // Calcula el factorial de un número de manera recursiva
+        }
+        console.log(factorial(5));
+        /*
+        Es un concepto clave en programación donde una función se llama a sí misma para resolver problemas de manera más pequeña y repetitiva, lo que es esencial en algoritmos complejos.
+        */
+
+        // Foreach
+        const miArray = [12, 13, 112, 143, 97];
+        miArray.forEach((contenido, posicion) => {
+            console.log(`Posición ${posicion}: ${contenido}`); // Recorre el array y muestra la posición y contenido de cada elemento
+        });
+        /*
+        Un método de arrays que simplifica la iteración sobre elementos y la aplicación de funciones a cada elemento, común en tareas de procesamiento de datos en JavaScript.
+        */
+
+        // Set
+        const miSet = new Set([2, 3, 4, 5, 3, 2, 7]);
+        for (const item of miSet) {
+            console.log(item); 
+        }
+        console.log('\nConvertido a array:\n');
+        const miArraySet = [...miSet]; // Convierte el "Set" en un array
+        miArraySet.forEach(elemento => console.log(elemento)); 
+        /*
+        Una estructura de datos que almacena elementos únicos, lo que evita duplicados y es útil para mantener colecciones únicas.
+        */
+
+        // Map
+        const miMap = new Map([
+            ['nombre', 'Alvaro'],
+            ['edad', '18']
+        ]);
+        console.log(miMap.get('nombre')); 
+        /*
+        Una estructura de datos que almacena pares clave-valor, lo que facilita el almacenamiento y acceso eficiente a datos relacionados.
+        */
+    </script>
+</body>
+
+</html>

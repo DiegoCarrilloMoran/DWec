@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras y Elementos en JavaScript</title>
+</head>
+<body>
+    <h1>Estructuras y Elementos en JavaScript</h1>
+
+    <script>
+        // Sentencia if
+        const condicion = true;
+        if (condicion) {
+            console.log("1. La condición es verdadera");
+        }
+
+        // Sentencia if...else
+        const numero = 10;
+        if (numero > 5) {
+            console.log("2. El número es mayor que 5");
+        } else {
+            console.log("2. El número no es mayor que 5");
+        }
+
+        // Sentencia switch
+        const opcion = 'A';
+        switch (opcion) {
+            case 'A':
+                console.log("3. Se seleccionó la opción A");
+                break;
+            case 'B':
+                console.log("3. Se seleccionó la opción B");
+                break;
+            default:
+                console.log("3. Opción no reconocida");
+        }
+
+        // Operador ternario
+        const edad = 20;
+        const esMayor = edad >= 18 ? "Mayor de edad" : "Menor de edad";
+        console.log("4. " + esMayor);
+
+        // Bucle for
+        console.log("5. Bucle for:");
+        for (let i = 1; i <= 5; i++) {
+            console.log("Iteración " + i);
+        }
+
+        // Bucle while
+        console.log("6. Bucle while:");
+        let contador = 1;
+        while (contador <= 5) {
+            console.log("Iteración " + contador);
+            contador++;
+        }
+
+        // Bucle do...while
+        console.log("7. Bucle do...while:");
+        let contadorDoWhile = 1;
+        do {
+            console.log("Iteración " + contadorDoWhile);
+            contadorDoWhile++;
+        } while (contadorDoWhile <= 5);
+
+        // Sentencia break en bucle
+        console.log("8. Sentencia break en bucle:");
+        for (let i = 1; i <= 10; i++) {
+            if (i === 5) {
+                console.log("Se encontró el número 5 y se sale del bucle.");
+                break;
+            }
+            console.log("Iteración " + i);
+        }
+
+        // Sentencia continue en bucle
+        console.log("9. Sentencia continue en bucle:");
+        for (let i = 1; i <= 5; i++) {
+            if (i === 3) {
+                console.log("Se salta la iteración " + i);
+                continue;
+            }
+            console.log("Iteración " + i);
+        }
+
+        // Sentencia return en función
+        function suma(a, b) {
+            return a + b;
+        }
+        const resultadoSuma = suma(3, 4);
+        console.log("10. Resultado de la suma: " + resultadoSuma);
+
+        // Sentencia try...catch
+        try {
+            const numeroInvalido = "abc";
+            const parsedNumber = parseInt(numeroInvalido);
+            if (isNaN(parsedNumber)) {
+                throw new Error("No es un número válido.");
+            }
+            console.log("11. Número parseado: " + parsedNumber);
+        } catch (error) {
+            console.error("Error: " + error.message);
+        }
+    </script>
+</body>
+</html>

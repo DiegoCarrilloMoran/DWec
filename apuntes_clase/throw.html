@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lanzar Excepción</title>
+</head>
+
+<body>
+    <h1>Lanzar Excepción</h1>
+    <script>
+        function retirar(saldo, cantidad) {
+            if (saldo < cantidad) {
+                throw new Error('Saldo insuficiente');
+            }
+            return saldo - cantidad;
+        }
+
+        let saldo = 300;
+        let cantidad = Number(prompt('Introduzca la cantidad a retirar'));
+
+        try {
+            const resultado = retirar(saldo, cantidad);
+            alert((saldo = resultado));
+        } catch (error) {
+            alert(error.message);
+        }
+    </script>
+</body>
+
+</html>

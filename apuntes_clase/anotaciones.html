@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays</title>
+</head>
+
+<body>
+    <!-- INDICE -->
+    <!-- 
+        NUMBERS
+        OPERADORES
+        ALERT Y PROMPT
+        TYPE OF
+    -->
+
+
+
+    <script>
+        //NUMBERS
+        const miNumero = 27
+        console.log(miNumero.toString(16))
+        // Convierte el número 27 a una cadena en formato hexadecimal y lo muestra en la consola.
+
+        let inf = 2
+        while (inf !== Infinity) {
+            console.log(inf)
+            inf *= inf
+        }
+        console.log(inf)
+        // Inicializa 'inf' con 2 y realiza un bucle que multiplica 'inf' por sí mismo hasta que 'inf' se convierte en Infinity. Luego muestra el valor final de 'inf' en la consola.
+
+        const div1 = 2
+        const div2 = 0
+        console.log('Division 2/0=' + 2 / 0)
+        console.log('Division -2/0=' + -2 / 0)
+        console.log('Typeof=' + div1 / div2)
+        // Realiza varias operaciones de división, incluyendo divisiones por 0, y muestra los resultados en la consola. Además, muestra el tipo de resultado con 'typeof'.
+
+        NaN
+        const variable1 = 'a'
+        const variable2 = 2
+        console.log(variable1 / variable2) // -> NaN
+        console.log(isNaN(variable1 / variable2)) // -> True
+        console.log(typeof (variable1 / variable2)) // -> Number
+        // Calcula y muestra el resultado NaN al realizar operaciones no válidas (división de una cadena por un número). Luego, verifica si el resultado es NaN y muestra su tipo.
+
+        // Propiedades
+        console.log('Maximo: ' + Number.MAX_VALUE)
+        console.log('Minimo: ' + Number.MIN_VALUE)
+        console.log('Negative Infinite: ' + Number.NEGATIVE_INFINITY)
+        console.log('Positive Infinite: ' + Number.POSITIVE_INFINITY)
+        // Muestra propiedades relacionadas con números, como el valor máximo, mínimo, infinito negativo e infinito positivo.
+
+        Metodos
+        const numero = 17.654
+
+        console.log(numero.toFixed(1))
+        console.log(numero.toPrecision(3))
+        console.log(numero.toExponential())
+        console.log(numero.valueOf())
+        console.log(numero.toString())
+        console.log(numero.toLocaleString())
+        // Utiliza métodos relacionados con números en JavaScript para mostrar diferentes representaciones del número 17.654.
+
+        Conversion
+        Number(), parseInt, parseFloat
+        // Menciona las funciones de conversión en JavaScript, como Number(), parseInt y parseFloat, que se utilizan para convertir otros tipos de datos en números.
+
+        //---------------------------------------------------------------------------------------------------------------------
+        //OPERADORES
+        let x = 1
+        let y = ++x
+        let z = y++ + x
+        console.log(x)
+        console.log(y)
+        console.log(z)
+        x += y
+        console.log(x)
+
+        let port = null || 5000 // TANTO PARA UNDEFINED COMO NULL
+        console.log(port)
+        port = null ?? 5000 // TANTO PARA UNDEFINED COMO NULL
+        console.log(port)
+
+        // TERNARY OPERATOR
+        console.log(`Port ${port === 5000 ? 'es' : 'no es '} 5000`) // Es 5000
+
+        // Precedencia de operadores
+        let year = 2050
+        let newYear = (year = 2051)
+        console.log(year, newYear) // Ambos son 2051
+
+        // Conversiones implicitas
+        const STR1 = '42' + 1
+        console.log(STR1) //43
+        console.log(typeof STR1) //43
+
+        const STR2 = '42' - 1
+        console.log(STR2) //41
+        console.log(typeof STR2) //41
+
+        const valor1 = '5'
+        const valor2 = 9
+        console.log(valor1 + valor2) //59
+
+        console.log(0 == true) //76
+        console.log(0.1e1 == true) //76
+        console.log('false' == false) //76
+
+        //----------------------------------------------------------------------------------------------------------------------------
+        //alert y promt, recuerda que prompt siempre introduce string, y que si quieres hacer saltos de linea o tabulaciones debes usar \ en cambio con 
+        //alert si escribes salto de linea etc si los mostrara de sa manera
+        const NOMBRE = prompt('Escribe tu nombre', 'Escribe aquí tu nombre')
+        console.log('Bienvenido a la web ' + NOMBRE)
+        console.log(`Bienvenido a la web ${NOMBRE}`)
+        console.log(`Tipo de variable "NOMBRE": ${typeof NOMBRE}`)
+        console.log(`Longitud: ${NOMBRE.length} caracteres`)
+
+        alert(
+            `Hola ${NOMBRE}, ${
+            confirm('¿Eres un alumno de nuestra clase?') ? 'veo que eres de clase, que felicidad' : 'no pertecenes a esta clase, deberias marcharte'
+            }`
+        )
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        //type of
+        const num = 123; // Un número entero
+        const cadena = "Hola, mundo"; // Una cadena de texto
+        const booleano = true; // Un valor booleano (verdadero)
+        const arreglo = [1, 2, 3]; // Un arreglo
+        const objeto = { nombre: "Juan", edad: 30 }; // Un objeto
+        const funcion = function() { return "Hola"; }; // Una función
+
+        console.log(typeof num); // "number" - La variable 'numero' es de tipo número.
+        console.log(typeof cadena); // "string" - La variable 'cadena' es de tipo cadena de texto.
+        console.log(typeof booleano); // "boolean" - La variable 'booleano' es de tipo booleano.
+        console.log(typeof arreglo); // "object" - Aunque es un arreglo, se informa como un objeto.
+        console.log(typeof objeto); // "object" - El objeto es de tipo objeto.
+        console.log(typeof funcion); // "function" - La variable 'funcion' es de tipo función.
+        console.log(typeof noDefinido); // "undefined" - Si la variable no está definida, el tipo es "undefined".
+
+    </script>
+</body>
+
+</html>

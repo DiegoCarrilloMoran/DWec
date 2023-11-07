@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport">
+        <title>Distintos enfoques de como recorrer un array y mostrar sus elementos </title>
+    </head>
+    <body>
+        <script>
+            //array creado para los ejemplos
+            const hoy = [3, 4, 7, , { nombre: 'diego', apellidos: 'carrillo morán' }]
+
+            //for normal
+            console.log('For normal:')
+            for (let i = 0; i < hoy.length; i++) {
+            console.log(hoy[i])
+            }
+            /*
+            "For normal" utiliza un bucle for para iterar a través de los índices del array y mostrar cada elemento.
+            */
+
+            //for in
+            console.log('For in:')
+            for (const key in hoy) {
+            console.log(hoy[key])
+            }
+            /*
+            "For in" recorre los índices del array usando un bucle for...in y muestra los elementos.
+            */
+
+
+            //for of
+            console.log('For of:')
+            for (const valor of hoy) {
+            console.log(valor instanceof Object ? valor.nombre : valor)
+            }
+            /*
+            "For of" utiliza un bucle for...of para recorrer los valores del array y muestra los elementos, intentando acceder al nombre si es un objeto.
+            */
+
+            //for each
+            console.log('For each:')
+            hoy.forEach(element => console.log(element))
+            /*
+            "ForEach" utiliza el método forEach para recorrer cada elemento y mostrarlos utilizando una función de callback.
+            */
+
+        </script>
+    </body>
+</html>
