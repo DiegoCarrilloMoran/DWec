@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>protipo de objeto</title>
+    </head>
+    <body>
+        <script>
+            //creacion del constructor del objeto tvSamsumg
+            function tvSamsung (nombre,categoria,unidades,precio){
+                this.nombre= nombre;
+                this.categoria= categoria;
+                this.unidades= unidades;
+                this.precio = precio;
+                this.valorTotal= function(){
+                    return this.unidades*this.precio;
+                }
+            }
+            //creacion de un bojeto tvSamsumg
+            let samsung = new tvSamsung("TV Samsung 42”","Televisores",4,345.95);
+            console.log("Samsung: "+samsung.valorTotal());
+
+            //Constructor de productos
+            function Productos(nombre,categoria,unidades,precio){
+                this.nombre= nombre;
+                this.categoria= categoria;
+                this.unidades= unidades;
+                this.precio = precio;
+                //Funciones que devuelven
+                this.valorTotal= function(){
+                    return this.unidades*this.precio;
+                };
+                this.getInfo= function(){
+                    return this.nombre+"("+this.categoria+"):" + this.unidades +"x"+this.precio+"="+ this.valorTotal() + "€";
+                }   
+            }
+
+            //cracion de televisores
+            let tv1 = new Productos("Philips","Televisores",6,1009);
+            let tv2 = new Productos("LG","Televisores",8.989);
+            let tv3 = new Productos("Panasonic","Televisores",8,789);
+
+            //Se crean productos
+            let prod1 = new Productos("LTS","portatil",6,830);
+            let prod2 = new Productos("Logitech","ratón",325,30.99);
+            let prod3 = new Productos("Soundcore","cascos",393,120);
+
+            //Se imprimenen los archivos por consola, de estos tres productos
+            console.log("Prod1: " + prod1.getInfo());
+            console.log("Prod2: " + prod2.getInfo());
+            console.log("Prod3: " + prod3.getInfo());
+            
+            //creamos esta funcion
+            function Televisores (nom,cat,unidades,precio,tam){ 
+                //Herencia de los atributos de producto
+                Productos.call(this,nom, cat, unidades, precio);
+                this.tamanio=tam;
+            }
+            //Asignacion de la herecia, se crea el prototype de televisores a partir del prototype de productos
+            //Establece la cadena de prototype para que televisores herede los atributos y metodos de producto 
+            Televisores.prototype = Object.create(Productos.prototype);
+            
+            //Cambio de la funcion de getInfo
+            Televisores.prototype.getInfo = function(){
+                    return this.nombre+" " + this.tamanio +"("+this.categoria+"):" + this.unidades +"x"+this.precio+"="+ this.valorTotal() + "€";
+            };
+
+            let tv = new Televisores("TV LG","Televisores",7,300.50,"40”");
+            console.log("tv: " + tv.getInfo());
+
+            //estas son funciones
+            //funciones de objetos
+            //esta funcion flecha no ordena alfabeticamente en base a un valor
+            const prodOrdenPorNombre = productos =>
+            productos.sort((p1, p2) => p1.nombre.localeCompare(p2.nombre))
+
+            //esta funcion nos devuelve en orden descendente
+            const prodOrdenPorPrecio = productos =>
+            productos.sort((p1, p2) => p2.precio - p1.precio)
+
+            //esto crea un acumulador
+            const prodPrecioTotal = productos =>
+            productos
+                .reduce((accumulated, current) => accumulated + current.importe()) // Sacar el cumulo de importes
+                .toFixed(2) // Dos decimales
+
+            // const prodConMenosUnidades = (productos, unidades) =>
+            //   productos.filter(p => p.unidades < unidades)
+
+            // const prodLista = productos =>
+            //   '- ' + productos.map(p => p.getInfo()).join('\n- ')
+
+            const prodConMenosUnidades = (productos, unidades) => {
+            const pConMenosUnidades = []
+            productos.forEach(p => {
+                if (p.unidades < unidades) pConMenosUnidades.push(p)
+            })
+            return pConMenosUnidades
+            }
+
+            const prodLista = productos => {
+            let resultado = ''
+            productos.forEach(p => {
+                resultado += `- ${p.getInfo()}\n`
+            })
+            return resultado
+            }
+
+            console.log(prodOrdenPorNombre(productos))
+            console.log(prodOrdenPorPrecio(productos))
+            console.log(prodPrecioTotal(productos))
+            console.log(prodConMenosUnidades(productos, 4))
+            console.log(prodLista(productos))
+       </script>
+    </body>
+</html>

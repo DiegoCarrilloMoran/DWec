@@ -1,0 +1,120 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tarea Continua</title>
+    </head>
+    <body>
+        <script>
+            const listaDeContactos = [
+                {
+                    nombre: "Maxmell Wright",
+                    telefono: "(0191) 719 6495",
+                    correo: "curabitur.egestas.nunc@nonummyac.co.uk"
+                },
+                {
+                    nombre: "Raja Villareal",
+                    telefono: "0866 398 2895",
+                    correo: "posuere.vulputate@sed.com"
+                },
+                {
+                    nombre: "Helen Richards",
+                    telefono: "0800 1111",
+                    correo: "libero@convallis.edu"
+                }
+            ];
+
+            function showContact(contactos, index) {
+                if (contactos instanceof Array && index >= 0 && index < contactos.length) {
+                    const contacto = contactos[index];
+                    console.log(`${contacto.nombre}/${contacto.telefono}/${contacto.correo}`);
+                } else {
+                    console.log("Índice de contacto no válido o la lista de contactos no es un array.");
+                }
+            }
+
+            function showAllContacts(contactos) {
+                if (contactos instanceof Array) {
+                    contactos.forEach((contacto, index) => {
+                        console.log(`${index + 1}. ${contacto.nombre}/${contacto.telefono}/${contacto.correo}`);
+                    });
+                } else {
+                    console.log("La lista de contactos no es un array.");
+                }
+            }
+
+            function addNewContact(contactos, nombre, telefono, correo) {
+                if (contactos instanceof Array && nombre && telefono && correo) {
+                    const nuevoContacto = {
+                        nombre: nombre,
+                        telefono: telefono,
+                        correo: correo
+                    };
+                    contactos.push(nuevoContacto);
+                    alert("Contacto añadido exitosamente.");
+                } else {
+                    alert("Datos de contacto incompletos o la lista de contactos no es un array.");
+                }
+            }
+
+            function sortContacts(contactos, campo) {
+                if (contactos instanceof Array) {
+                    switch (campo) {
+                        case "nombre":
+                            contactos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                            break;
+                        case "telefono":
+                            contactos.sort((a, b) => a.telefono.localeCompare(b.telefono));
+                            break;
+                        case "correo":
+                            contactos.sort((a, b) => a.correo.localeCompare(b.correo));
+                            break;
+                        default:
+                            console.log("Campo de ordenación no válido.");
+                    }
+                } else {
+                    console.log("La lista de contactos no es un array.");
+                }
+            }
+
+            let continuar = true;
+
+            while (continuar) {
+                const opcion = prompt(`Elige una opción:
+                    - Mostrar el primer contacto (1)
+                    - Mostrar el último contacto (2)
+                    - Mostrar todos los contactos (3)
+                    - Añadir un nuevo contacto (4)
+                    - Ordenar la lista (5)
+                    - Salir del programa (6)`);
+
+                switch (opcion) {
+                    case "1":
+                        showContact(listaDeContactos, 0);
+                        break;
+                    case "2":
+                        showContact(listaDeContactos, listaDeContactos.length - 1);
+                        break;
+                    case "3":
+                        showAllContacts(listaDeContactos);
+                        break;
+                    case "4":
+                        const nombreNuevo = prompt("Introduce el nombre del nuevo contacto:");
+                        const telefonoNuevo = prompt("Introduce el número de teléfono del nuevo contacto:");
+                        const correoNuevo = prompt("Introduce el correo electrónico del nuevo contacto:");
+                        addNewContact(listaDeContactos, nombreNuevo, telefonoNuevo, correoNuevo);
+                        break;
+                    case "5":
+                        const campoOrden = prompt("Elige el campo por el cual deseas ordenar (nombre, telefono, correo):");
+                        sortContacts(listaDeContactos, campoOrden);
+                        break;
+                    case "6":
+                        continuar = false;
+                        break;
+                    default:
+                        alert("Opción no válida. Por favor, elige una opción válida.");
+                }
+            }
+        </script>
+    </body>
+</html>
