@@ -11,45 +11,37 @@
         <script>
             //declaramos la caja y el numero de filas que queremos
             let caja = document.getElementById("caja");
-            let numFilas = parseInt(prompt("Ingrese el número de filas para el rombo:"));
+            let numero;
 
             //pedimo un numero valido sino no lo hace
-            if (isNaN(numFilas)) {
-                alert("Por favor, ingrese un número válido.");
-            } else {
+            do {
+                numero = Number(prompt("Ingresa el número de filas que desea (entre 1 y 50)"));
+
+                // Verificar si es un numero valido
+                if (isNaN(numero) || numero < 1 || numero > 50) {
+                    alert("Por favor, introduce un números entre 1 y 50.");
+                }
+            } while (isNaN(numero) || numero < 1 || numero > 50)
+
+            let espacios = 0
+            //bucle
+                for (let i = numero; i >= 0; i--) {
+
+                    let espacios
+
+                    for (let k = 0; k < espacios; k++) {
+                        document.write("&nbsp;&nbsp;");
+                    }
+
+                    for (let j = 1; j <= i; j++) {
+                        document.write(i+"&nbsp;&nbsp;");
+                    }
+                    document.write("<br/>");
+                }
+
                 
-                // primera mitad del rombo
-                for (let i = 0; i < numFilas; i++) {
-                    let asterisco = "";
-                    let espacioHTML = "";
-
-                    for (let k = 0; k < numFilas - i - 1; k++) {
-                        espacioHTML += "&nbsp;&nbsp;";
-                    }
-
-                    for (let j = 1; j <= 2 * i + 1; j++) {
-                        asterisco += "*";
-                    }
-
-                    caja.innerHTML += espacioHTML + asterisco + "<br>";
-                }
-
-                // Parte inferior del rombo (decreciente)
-                for (let i = numFilas - 2; i >= 0; i--) {
-                    let asterisco = "";
-                    let espacioHTML = "";
-
-                    for (let k = 0; k < numFilas - i - 1; k++) {
-                        espacioHTML += "&nbsp;&nbsp;";
-                    }
-
-                    for (let j = 1; j <= 2 * i + 1; j++) {
-                        asterisco += "*";
-                    }
-
-                    caja.innerHTML += espacioHTML + asterisco + "<br>";
-                }
-            }
+                
+            
         </script>
     </body>
 </html>

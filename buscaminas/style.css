@@ -1,0 +1,33 @@
+#tabla {
+    border-collapse: collapse;
+}
+
+#tabla td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.celda {
+    background-color: lightgray;
+}
+.oculto {
+    color: aliceblue;
+}
+
+.mina {
+    background-image: url('imagenes/mina.png');
+    background-size: cover;
+}
+
+.descubierta {
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.bandera {
+    background-image: url('imagenes/bandera.jpg');
+    background-size: cover;
+}

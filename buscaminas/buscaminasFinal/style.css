@@ -1,0 +1,98 @@
+/* Estilos para el título */
+header {
+    margin-bottom: 20px; /* Agregamos espacio inferior para separar del formulario */
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-section {
+    flex: 1;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+.right-section {
+    flex: 2;
+    width: 66%;
+    position: relative;
+    background-color: #fff;
+}
+
+/* Estilos para el formulario */
+.formulario-juego {
+    margin-bottom: 40px;
+}
+
+.formulario {
+    margin-bottom: 20px;
+}
+
+.entrada {
+    margin-bottom: 15px;
+}
+
+input[type="number"],
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Estilos para la tabla */
+.juego {
+    margin: 0 auto; /* Centramos la tabla horizontalmente */
+    width: 80%; /* Ajusta el ancho de la tabla según sea necesario */
+}
+
+#tabla {
+    border-collapse: collapse; /* Colapsamos los bordes de la tabla */
+    margin: 0 auto; /* Centramos la tabla horizontalmente */
+}
+
+#tabla td {
+    width: 30px;
+    height: 30px;
+    border: 2px solid purple;
+    text-align: center; /* Centramos el texto dentro de las celdas */
+    vertical-align: middle; /* Centramos verticalmente el contenido */
+}
+
+/* Estilos para el mensaje de victoria/derrota */
+.resultado-juego {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 48px;
+}
+
+.victoria {
+    color: green;
+}
+
+.derrota {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}

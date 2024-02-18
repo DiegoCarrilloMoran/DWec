@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscaminas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <header>
+                <h1>Buscaminas</h1><br>
+            </header>
+            <div class="formulario-juego">
+                <div class="formulario">
+                    <div class="entrada">
+                        <label for="filas">Filas:</label>
+                        <input type="number" id="filas" min="10" max="25" value="10" onkeydown="return false">
+                    </div>
+                    <div class="entrada">
+                        <label for="columnas">Columnas:</label>
+                        <input type="number" id="columnas" min="10" max="25" value="10" onkeydown="return false">
+                    </div>
+                    <div class="entrada">
+                        <label for="dificultad">Dificultad:</label>
+                        <input type="radio" name="dificultad" value="10" checked> Fácil
+                        <input type="radio" name="dificultad" value="15"> Medio
+                        <input type="radio" name="dificultad" value="20"> Difícil
+                    </div>
+                </div>
+                <button class="generar-juego">Iniciar Partida</button>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="contenedor-juego hidden">
+                <h2>Banderas colocadas: <span id="num-banderas"></span> (faltan <span id="banderas-restantes"></span>)
+                </h2>
+                <div class="juego">
+                    <table id="tabla">
+
+                    </table>
+                </div>
+                <div class="resultado-juego"></div>
+            </div>
+        </div>
+    </div>
+    <script src="iniciarBuscaminas.js"></script>
+</body>
+
+</html>

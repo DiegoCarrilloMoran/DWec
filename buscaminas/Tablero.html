@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscaminas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Buscaminas</h1>
+    <label for="filas">Filas:</label>
+    <input type="number" id="filas" min="10" max="25" onkeydown="return false">
+    <label for="columnas">Columnas:</label>
+    <input type="number" id="columnas" min="10" max="25" onkeydown="return false">
+
+    <label for="dificultad">Dificultad:</label>
+    <input type="radio" name="dificultad" value="15" checked> Fácil
+    <input type="radio" name="dificultad" value="20"> Medio
+    <input type="radio" name="dificultad" value="25"> Difícil
+
+    <button onclick="validacionNumeros()">Iniciar</button>
+    <table id="tabla"></table>
+
+    <script src="iniciarBuscaminas.js"></script>
+</body>
+
+</html>
